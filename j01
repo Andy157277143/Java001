@@ -1,0 +1,101 @@
+class Student{
+	//定义属性
+	private int id;
+	private String name;
+	private int yuwen;
+	private int shuxue;
+	private int eng;
+	//-
+	
+	//定义构造方法
+	public Student(int id,String name,int yuwen,int shuxue,int eng){
+		this.setId(id);
+		this.setName(name);
+		this.setYuwen(yuwen);
+		this.setShuxue(shuxue);
+		this.setEng(eng);
+	}
+	
+	
+	//定义set和get方法
+	public void setId(int i){		//定义set方法
+		id=i;
+	}
+	public int getId(){				//定义get方法
+		return id;
+	}
+	public void setName(String n){
+		name=n;
+	}
+	public String getName(){
+		return name;
+	}
+	public void setYuwen(int y){
+		yuwen=y;
+	}
+	public int getYuwen(){
+		return yuwen;
+	}
+	public void setShuxue(int s){
+		shuxue=s;
+	}
+	public int getShuxue(){
+		return shuxue;
+	}
+	public void setEng(int e){
+		eng=e;
+	}
+	public int getEng(){
+		return eng;
+	}
+	
+	//定义其他方法
+	//计算总分
+	public int sum(){	
+		return yuwen+shuxue+eng;
+	}
+	//计算最大值
+	public float max(){
+		float max = yuwen;
+		
+		if (max<shuxue){
+			max = shuxue;
+		}
+		else{
+			max = max;
+		}
+		
+		if(max<eng){
+			max = eng;
+		}
+		else{
+			max = max;
+		}
+		
+		return max;		//返回最大值
+	}	
+	//计算最小值
+	public float min(){
+		float min = yuwen;
+		min = min < shuxue ? min : shuxue;		//三目运算
+		min = min < eng ? min : eng;			//三目运算		
+		
+		return min;		//返回最小值
+	}
+	//计算平均值
+	public float avg(){
+		float avg = (yuwen+shuxue+eng)/3;
+		return avg;
+	}
+};
+public class TestStudent{
+	public static void main(String args[]){
+		Student stu = null;
+		stu = new Student(123,"andy",90,80,70);
+		System.out.println(stu.getId()+","+stu.getName()+","+stu.getYuwen()+","+stu.getShuxue()+","+stu.getEng());
+		System.out.println("sum:"+stu.sum());
+		System.out.println("max:"+stu.max());
+		System.out.println("min:"+stu.min());
+		System.out.println("avg:"+stu.avg());
+	}
+}
